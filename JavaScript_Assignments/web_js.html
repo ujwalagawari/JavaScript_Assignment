@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Java Script Assignments</title>
+</head>
+<body align="center">
+        Temperature (in Fahrenheit): <input type="text" name="temp" id="temp"> 
+        <span id="tempError" style="color: red"></span>
+        <br>
+        <br>
+        <input type="button" onclick="myFunction()" value="Show Results"> 
+        <br>
+        <p id="p1"></p>
+
+        <script>
+        function myFunction(){
+            var temp = document.getElementById("temp").value;
+            var regex = /^-?\d*\.?\d+$/;
+           // var regex = /^[0-9\s]*$/;
+            if(!regex.test(temp) || temp==""){
+                document.getElementById("tempError").innerHTML="Please Enter number.";
+            }else{
+                document.getElementById("p1").innerHTML="In Celsius= "+5/9*(parseInt(temp)-32);
+                document.getElementById("tempError").innerHTML="";
+            }
+        }
+        </script>
+</body>
+</html>
