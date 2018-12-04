@@ -5,10 +5,17 @@
 ----Navigation, History, Window, Location, Screen.
 
 3.1. Find out most commonly used functions(minimum 4) of "document" object and write their purpose with a code snippet which proves the purpose.
-
-
+1)document.getElementById(id)	Find an element by element id
+2)document.getElementsByTagName(name)	Find elements by tag name
+3)document.getElementsByClassName(name)	Find elements by class name
+4)element.innerHTML =  new html content	Change the inner HTML of an elements
+---Refer documentObject.js 
 
 3.2. Find out most commonly used functions(minimum 4) of "window" object and write their purpose with a code snippet which proves the purpose.
+1) window.document.getElementById(id); to get element by id
+2) window.print(); to print page
+3) window.focus();
+4) window.length;
 
 4. Create an HTML page with a button on it, when the button is clicked, it should display an alert box with text "Hello World"
 <html lang="en">
