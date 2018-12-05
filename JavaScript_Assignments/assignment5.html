@@ -1,38 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Pizza Hut</title>
     <script src="assignment5.js"></script>
     <link rel="stylesheet" type="text/css" href="assignment5.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body style="background: rgb(189, 187, 187)">
-<form>
 
-    Name: <input type="text" name="cName" id="cName">
-    Email:<input type="text" name="email" id="email"><br>
-    Toppings: 
-    Extra Cheese: <input type="checkbox" name="toppings">
-    Pepperoni: <input type="checkbox" name="toppings">
-    Olives: <input type="checkbox" name="toppings">
-    Pepper: <input type="checkbox" name="toppings">
-    Becon: <input type="checkbox" name="toppings">
-    Tamotoes: <input type="checkbox" name="toppings">
-    Mushrooms: <input type="checkbox" name="toppings"><br>
-    How do you want to get your pizza!
-    Delivery<input type="radio" name="delivery">
-    Pickup<input type="radio" name="delivery"><br>
-    Tip?
-    <select>
-        <option value="15%">15%</option>
-        <option value="20%">20%</option>
-        <option value="25%">25%</option>
-    </select>
-    <hr>
-    Address: 
-    <textarea name="address" id="address"></textarea><br>
-    <button type="button">Submit</button>
-    <button type="reset">Submit</button>
-    <button type="button">Show Summery</button>
-</form>
+<body>
+    <form>
+        Name:
+        <input type="text" name="cName" id="cName" required>
+        <span id="cNameError"></span>
+        <br> Email:
+        <input type="text" name="email" id="email" required>
+        <span id="emailError"></span>
+        <br> Toppings:
+        <span id="toppingsError"></span>
+        <br> Extra Cheese:
+        <input type="checkbox" class="toppings"> Pepperoni:
+        <input type="checkbox" class="toppings"> Olives:
+        <input type="checkbox" class="toppings"> Pepper:
+        <input type="checkbox" class="toppings"> Becon:
+        <input type="checkbox" class="toppings"> Tamotoes:
+        <input type="checkbox" class="toppings"> Mushrooms:
+        <input type="checkbox" class="toppings">
+        <br> How do you want to get your pizza! Delivery
+        <input type="radio" name="delivery" checked> Pickup
+        <input type="radio" name="delivery">
+        <br> Tip?
+        <select name="tip" id="tip">
+            <option value="15%">15%</option>
+            <option value="20%">20%</option>
+            <option value="25%">25%</option>
+        </select>
+        <hr> Address:
+        <textarea name="address" id="address1" required></textarea>
+        <span id="addressError"></span>
+        <br>
+        <button type="button" onclick="submitForm()">Submit</button>
+        <button type="reset">Reset</button>
+        <button type="button" id="summary" disabled>Show Summary</button>
+    </form>
+
+    <br>
+    <div id="myTable">
+        <table>
+            <h2>Pizza Order Summary</h2>
+            <thead>
+                <th>Name :</th>
+                <th>Email :</th>
+                <th>Address :</th>
+                <th>Toppings</th>
+                <th>Delivery?</th>
+                <th>Tip Amount :</th>
+                <th>Total :</th>
+            </thead>
+            <tbody>
+                <tr><td id="nameCell"></td></tr>
+                <tr><td id="emailCell"></td></tr>
+                <tr><td id="addressCell"></td></tr>
+                <tr><td id="toppingsCell"></td></tr>
+                <tr><td id="deliveryCell"></td></tr>
+                <tr><td id="tipCell"></td></tr>
+                <tr><td id="total"></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+        $(function () {
+            $("#myTable").hide();
+        });
+
+        $("#summary").click(function(){
+            $("#myTable").show();
+            alert($("#cName").val());
+            $("#nameCell").val($("#cName").val());
+            // $("#emailCell").val($("#email").val());
+            // $("#addressCell").val($("#address1").val());
+            // $("#toppingsCell").val($(".toppings").val());
+            // $("#deliveryCell").val(document.getElementsByName("delivery"));
+            // $("#tipCell").val($("#tip").val());
+            // $("#total").val($("#tip").val());
+        });
+    </script>
 </body>
+
 </html>
