@@ -5,7 +5,7 @@ var amitabh={
     skills : ["Acting", "Dancing"],
     address : {city : "Navi Mumbai", pincode : 400501},
     dateOfBirth : new Date('1970-05-12'),
-    married : 'true',
+    married : true,
     profession : "Actor"
 }
 console.log(amitabh);
@@ -23,7 +23,7 @@ aaradhya.fname="Aaradhya";//fname is not common so change. Same for other
 aaradhya.age=8;
 aaradhya.dateOfBirth=new Date('2010-05-12');
 aaradhya.skills=["Drawing","Dancing"];
-aaradhya.married="false";
+aaradhya.married=false;
 aaradhya.profession="Student";
 console.log(aaradhya);
 console.log("Aaradhya's First Name: "+aaradhya.fname+" Last Name: "+aaradhya.lname+

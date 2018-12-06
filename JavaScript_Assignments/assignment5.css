@@ -30,3 +30,6 @@ table, td {
   tbody {
     float: right; 
   }
+  span{
+    color: red;
+  }

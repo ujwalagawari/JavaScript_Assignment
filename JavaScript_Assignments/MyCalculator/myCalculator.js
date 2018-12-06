@@ -51,24 +51,46 @@ myFunction = function () {
                         document.getElementById("resultBox").value = Math.pow(parseInt(f2), parseInt(s2));
                 }
                 else if (selectType == 6) {
-                        while (true) {
-                                f3 = prompt("Enter  series of numbers", "1 2 3");
-                                if (f3 == "") {
-                                        alert("Please enter a valid no");
-                                } else {
-                                        break;
-                                }
-                        }
-                        var a=f3.split(" ");
-                       // alert(a+" "+a.length);
-                        var total = 0;
-                        for (var i = 0; i < a.length; i++) {
-                                total = total+parseInt(a[i]);
-                        }
-                       // alert(total);
-                        document.getElementById("resultBox").value = total / a.length;
+                        findMean();
                 }
         } else {
                 document.getElementById("errorMsg").innerHTML = "Please enter valid no between 1 and 7. Again click Run Calculator button.";
         }
 }
+
+function findMean(){
+        var sum = 0;
+    var count = 0;
+    var number = prompt("Enter number");
+    while (!isNumber(number)) {
+        number = prompt("Enter number");
+    }
+
+    while (number != "***") {
+        if (number != "***") {
+            count++;
+            sum += parseInt(number);
+            number = prompt("Enter number");
+            while (!isNumber(number)) {
+                number = prompt("Enter number");
+            }
+        
+        }
+    }
+    document.getElementById("resultBox").value = sum / count;
+
+}
+
+function isNumber(x) {
+        // var val="^[a-zA-Z0-9]{,30}";
+        var val = /^[0-9*]/i;
+        if (val.test(x)) {
+            console.log(true);
+            return true;
+            //console.log(true);
+        } else {
+            console.log(false);
+            alert("Enter Valid number");
+            return false;
+        }
+    }

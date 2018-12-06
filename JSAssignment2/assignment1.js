@@ -6,7 +6,7 @@ var person={
     skills : ["Java", "js", "html"],
     address : {city : "Navi Mumbai", pincode : 400501},
     dateOfBirth : new Date('1993-04-09'),
-    married : 'true',
+    married : true,
     profession : "Analyst"
 }
 
@@ -19,7 +19,7 @@ var person1={
     skills : ["Java", "js", "html"],
     address : {city : "Navi Mumbai", pincode : 400501},
     dateOfBirth : new Date('1990-04-09'),
-    married : 'true',
+    married : true,
     profession : "Analyst"
 }
 

@@ -16,26 +16,26 @@
         <br> Email:
         <input type="text" name="email" id="email" required>
         <span id="emailError"></span>
-        <br> Toppings:
+        <br> <b>Toppings:</b>
         <span id="toppingsError"></span>
         <br> Extra Cheese:
-        <input type="checkbox" class="toppings"> Pepperoni:
-        <input type="checkbox" class="toppings"> Olives:
-        <input type="checkbox" class="toppings"> Pepper:
-        <input type="checkbox" class="toppings"> Becon:
-        <input type="checkbox" class="toppings"> Tamotoes:
-        <input type="checkbox" class="toppings"> Mushrooms:
-        <input type="checkbox" class="toppings">
-        <br> How do you want to get your pizza! Delivery
-        <input type="radio" name="delivery" checked> Pickup
-        <input type="radio" name="delivery">
-        <br> Tip?
+        <input type="checkbox" class="toppings" value="Extra Cheese"> Pepperoni:
+        <input type="checkbox" class="toppings" value="Pepperoni"> Olives:
+        <input type="checkbox" class="toppings" value="Olives"> Pepper:
+        <input type="checkbox" class="toppings" value="Pepper"> Becon:
+        <input type="checkbox" class="toppings" value="Becon"> Tamotoes:
+        <input type="checkbox" class="toppings" value="Tamotoes"> Mushrooms:
+        <input type="checkbox" class="toppings" value="Mushrooms"> 
+        <br> <b>How do you want to get your pizza! </b>
+         Delivery <input type="radio" name="delivery" value="Yes" checked> 
+         Pickup <input type="radio" name="delivery" value="No">
+        <br> <b>Tip?</b>
         <select name="tip" id="tip">
             <option value="15%">15%</option>
             <option value="20%">20%</option>
             <option value="25%">25%</option>
         </select>
-        <hr> Address:
+        <hr> <b>Address:</b><br>
         <textarea name="address" id="address1" required></textarea>
         <span id="addressError"></span>
         <br>
@@ -46,13 +46,13 @@
 
     <br>
     <div id="myTable">
-        <table>
+        <table id="tabless" cellpadding="5">
             <h2>Pizza Order Summary</h2>
-            <thead>
+            <thead id="thead">
                 <th>Name :</th>
                 <th>Email :</th>
                 <th>Address :</th>
-                <th>Toppings</th>
+                <th id="top">Toppings</th>
                 <th>Delivery?</th>
                 <th>Tip Amount :</th>
                 <th>Total :</th>
@@ -61,7 +61,7 @@
                 <tr><td id="nameCell"></td></tr>
                 <tr><td id="emailCell"></td></tr>
                 <tr><td id="addressCell"></td></tr>
-                <tr><td id="toppingsCell"></td></tr>
+                <tr><td id="toppingsCell">.</td></tr>
                 <tr><td id="deliveryCell"></td></tr>
                 <tr><td id="tipCell"></td></tr>
                 <tr><td id="total"></td></tr>
@@ -77,16 +77,58 @@
 
         $("#summary").click(function(){
             $("#myTable").show();
-            alert($("#cName").val());
-            $("#nameCell").val($("#cName").val());
-            // $("#emailCell").val($("#email").val());
-            // $("#addressCell").val($("#address1").val());
-            // $("#toppingsCell").val($(".toppings").val());
-            // $("#deliveryCell").val(document.getElementsByName("delivery"));
-            // $("#tipCell").val($("#tip").val());
-            // $("#total").val($("#tip").val());
+            document.getElementById("nameCell").innerHTML=$("#cName").val();
+            document.getElementById("emailCell").innerHTML=$("#email").val();
+            document.getElementById("addressCell").innerHTML=$("#address1").val();
+            toppingsChecked();
+            //document.querySelector('.toppings:checked').value;
+            //document.getElementsByName("toppings");
+            document.getElementById("deliveryCell").innerHTML=document.querySelector('input[name="delivery"]:checked').value;
+            //document.getElementsByName("delivery");
+            document.getElementById("tipCell").innerHTML=$("#tip").val();
+            document.getElementById("total").innerHTML=$("#tip").val();
         });
+
+        function toppingsChecked(){
+                var top = $("#top");
+				var items=document.getElementsByClassName('toppings');
+                var selectedItems="";
+                var j=1;
+				for(var i=0; i<items.length; i++){
+                    //topCell.append($("<tr>Text-3</tr>"));
+					if(items[i].type=='checkbox' && items[i].checked==true){
+                        selectedItems+=items[i].value;
+                       top.append($("<th>Topping "+(j)+"</th>"));
+                       //var row = table.insertRow(6);
+                      // toppingsCell.append($("<tr><td>Text-3<td></tr>"));
+                         var table = document.getElementById("tabless");
+                         var row1 = table.insertRow(5);
+                         var cell1 = row1.insertCell(0);
+                         cell1.innerHTML=items[i].value;
+
+                        // var header = table.header;
+                        // var row2 = header.insertRow(5);
+                        // var cell2 = row2.insertCell(0);
+                        // cell12.innerHTML="Topping "+(j);
+                        j++;
+                    }
+				}
+				//alert(selectedItems);
+            }
+            
+            // function insertRow(i,Toppings){
+            //     var table = document.getElementById("Summary");
+            //     var nameRow = table.insertRow(i+4);
+
+            //     var nameCell1 = nameRow.insertCell(0);
+            //     nameCell1.innerHTML = "Toppings "+ ++i;
+
+            //     var nameCell2 = nameRow.insertCell(1);
+            //     nameCell2.innerHTML = Toppings;
+
+            // }
     </script>
+
 </body>
 
 </html>

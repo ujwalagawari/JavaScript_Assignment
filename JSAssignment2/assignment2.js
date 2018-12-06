@@ -6,7 +6,7 @@ var amitabh={
     skills : ["Acting", "Dancing"],
     address : {city : "Navi Mumbai", pincode : 400501},
     dateOfBirth : new Date('1970-05-12'),
-    married : 'true',
+    married : true,
     profession : "Actor"
 }
 console.log(amitabh);
