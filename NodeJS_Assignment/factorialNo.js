@@ -1,7 +1,9 @@
 function myFunction(){
-    var a=parseInt(document.getElementById("number").value);
-    for(var i=a-1; i>1; i--){
-        a=a*i;
+    //Factorial of given numbers
+    var number=3; //declaration of number
+    for(var i=number-1; i>1; i--){
+        number=number*i;
     }
-    document.getElementById("p1").innerHTML = a;
+    console.log("Factorial of 3 is : "+number);
 }
+myFunction();
